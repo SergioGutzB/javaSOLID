@@ -12,8 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.css">
+<link rel="stylesheet" href="css/foundation.min.css">
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -28,7 +27,7 @@
 				<input type="hidden" name="accion" value="crear">
 				<div class="row">
 					<div class="medium-12 columns">
-						<label>Marca<input type="text" name="marca">
+						<label>Marca<input type="text" name="marca" required>
 						</label>
 					</div>
 				</div>
@@ -37,8 +36,8 @@
 						<legend>Selecione el tipo de vehiculo</legend>
 						<input type="radio" name="vehiculo" value="carro" id="TipoCarro"
 							required> <label for="TipoCarro">Carro</label> <input
-							type="radio" name="vehiculo" value="avion" id="TipoAvion">
-						<label for="TipoAvion">Avión</label>
+							type="radio" name="vehiculo" value="avion" id="TipoAvion"
+							required> <label for="TipoAvion">Avión</label>
 					</fieldset>
 				</div>
 				<div class="row">
@@ -46,7 +45,7 @@
 						<legend>Selecione el tipo de motor</legend>
 						<input type="radio" name="motor" value="gasolina" id="mGasolina"
 							required> <label for="mGasolina">Gasolina</label> <input
-							type="radio" name="motor" value="electrico" id="mElectrico">
+							type="radio" name="motor" value="electrico" id="mElectrico" required>
 						<label for="mElectrico">Eléctrico</label>
 					</fieldset>
 				</div>
@@ -74,8 +73,13 @@
 					arV.add(veh);
 					sesion.setAttribute("vehiculos", arV);
 				}
-				ArrayList<Vehiculo> arV = (ArrayList<Vehiculo>) sesion.getAttribute("vehiculos");
-				System.out.println("Imprimiendo lista: " + arV.size());
+				ArrayList<Vehiculo> arV = new ArrayList<Vehiculo>();
+				if (sesion.getAttribute("vehiculos") != null) {
+					arV = (ArrayList<Vehiculo>) sesion.getAttribute("vehiculos");
+					System.out.println("Imprimiendo lista: " + arV.size());
+					
+					
+				}
 			%>
 
 
@@ -84,53 +88,38 @@
 			%>
 			<div class="row vehiculo">
 				<div class="small-3 columns">
-					<p>Marca<%=v.getMarca()%></p>
+					<p>
+						Marca:  <%=v.getMarca()%></p>
 				</div>
 				<div class="small-2 columns">
-					<button type="button" class="primary button" onclick="alert('<%= v.acelerar()%>')">Acelerar</button>
+					<button type="button" class="primary button"
+						onclick="alert('<%=v.acelerar()%>')">Acelerar</button>
 				</div>
 				<div class="small-2 columns">
-					<button type="button" class="primary button" onclick="alert('<%= v.getClass().getSimpleName()%>')">Tipo</button>
-				</div>				
-				
+					<button type="button" class="primary button"
+						onclick="alert('<%=v.getClass().getSimpleName()%>')">Tipo</button>
+				</div>
+
 			</div>
 
 			<%
 				}
 			%>
+			<div class="row">
+				<div class="small-3 small-right columns">
+					<button type="button" class="warning button"
+						onclick="<%sesion.invalidate();%> alert('Datos eliminados')">Eliminar
+						datos</button>
+				</div>
+			</div>
 
 		</div>
 	</div>
-<p><a data-open="exampleModal2">Click me for a modal</a></p>
 
-<!-- This is the first modal -->
-<div class="reveal" id="exampleModal2" data-reveal>
-  <h1>Awesome!</h1>
-  <p class="lead">I have another modal inside of me!</p>
-  <a class="button" data-open="exampleModal3">Click me for another modal!</a>
-  <button class="close-button" data-close aria-label="Close reveal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-
-<!-- This is the nested modal -->
-<div class="reveal" id="exampleModal3" data-reveal>
-  <h2>ANOTHER MODAL!!!</h2>
-  <button class="close-button" data-close aria-label="Close reveal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"
-	integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-	crossorigin="anonymous"></script>
-<!-- Compressed JavaScript -->
-<script
-	src="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.js"></script>
-</html>
-<script type="text/javascript">
-var elem = new Foundation.Reveal(element, options);
-
-</script>
-
+	<script src="js/jquery.js"
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+		crossorigin="anonymous"></script>
+	<!-- Compressed JavaScript -->
+	<script src="js/foundation.min.js"></script>
 </body>
-
+</html>
