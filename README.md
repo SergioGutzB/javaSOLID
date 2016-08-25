@@ -18,7 +18,7 @@ El proyecto se desarrollo en el IDE Eclipse, para funcionar es necesario tener i
 # EXPLICACION
 
 El proyecto consiste en un generador de vehiculos (_Automolviles_ y _Aeronaves_).
-Cuando se crea un vehículo el motor se crea automaticamente segun las especificaciones que le demos del tipo de motor. 
+Cuando se crea un vehículo el motor se crea automaticamente segun las especificaciones que le demos del tipo de motor ( _MotorGasolina_, _MotorElectrico_). 
 Es posible crear un motor, para luego instalarlo en un vehículo ya creado, y debe funcionar correctamente. 
 El vehículo solo tiene la función de acelerar que es determinada por el tipo de motor instalado. 
  
