@@ -1,4 +1,7 @@
-package com.informatica1.models;
+package com.informatica1.models.Automovil;
+
+import com.informatica1.models.Vehiculo;
+import com.informatica1.models.Motor.IMotor;
 
 public class Carro extends Vehiculo implements Automovil {
 

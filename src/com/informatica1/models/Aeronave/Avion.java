@@ -1,4 +1,7 @@
-package com.informatica1.models;
+package com.informatica1.models.Aeronave;
+
+import com.informatica1.models.Vehiculo;
+import com.informatica1.models.Motor.IMotor;
 
 public class Avion extends Vehiculo implements Aeronave {
 

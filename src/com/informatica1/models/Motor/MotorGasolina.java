@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.informatica1.models;
+package com.informatica1.models.Motor;
 
 /**
  * @author sergio
@@ -9,7 +9,20 @@ package com.informatica1.models;
  */
 public class MotorGasolina implements IMotor {
 
-	public MotorGasolina() {
+	private String serie = "";
+	
+	public MotorGasolina(String serie) {
+		this.serie = serie;
+	}
+	
+	@Override
+	public String getSerie() {
+		return serie;
+	}
+	
+	@Override
+	public void setSerie(String serie) {
+		this.serie = serie;
 	}
 
 	@Override

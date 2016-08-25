@@ -1,5 +1,7 @@
 package com.informatica1.models;
 
+import com.informatica1.models.Motor.IMotor;
+
 public abstract class Vehiculo {
 	private IMotor motor;
 	private String marca;

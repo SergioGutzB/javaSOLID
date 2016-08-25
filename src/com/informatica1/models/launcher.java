@@ -1,14 +1,21 @@
 package com.informatica1.models;
 
+import com.informatica1.models.Automovil.Carro;
+import com.informatica1.models.Automovil.CarroFactory;
+import com.informatica1.models.Motor.IMotor;
+import com.informatica1.models.Motor.MotorElectrico;
+import com.informatica1.models.Motor.MotorGasolina;
+
 public class launcher {
 
 	public static void main(String[] args) {
-		Carro v = CarroFactory.Create(TipoMotor.MOTOR_GASOLINA, "Toyota");
-		System.out.println(v.getMarca());
-		v.acelerar();
-		MotorElectrico me = new MotorElectrico();
+		IMotor motorGasolina= new MotorGasolina("SG345n");
+		IMotor motorElectrico = new MotorElectrico("SE344");
+		Carro carro = CarroFactory.Create(motorElectrico, "Toyota");
+		System.out.println(carro.getMarca());
+		carro.acelerar();
 		System.out.println("Cambiando MotorGasolina por MotorElectrico...");
-		v.setMotor(me);
-		v.acelerar();
+		carro.setMotor(motorGasolina);
+		carro.acelerar();
 	}
 }
